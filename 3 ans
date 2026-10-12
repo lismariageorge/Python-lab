@@ -1,0 +1,39 @@
+[11/10, 7:17 am] ~ Lis...: GNU nano 9.1             q.py
+def frequency(s,f):
+        print(s.count(f))
+def replace(s):
+        remove=input("which character to be remove:")
+        place=input("which is to be replace it:")
+        print(s.replace(remove,place))
+def fi_occu(s):
+
+        print(s.replace(s[0],' ',1))
+def all_occu(s):
+        print(s.replace(s,''))
+
+s=input("Enter a string:")
+f=input("Enter a character :")
+frequency(s,f)
+replace(s)
+fi_occu(s)
+all_occu(s)
+[11/10, 7:25 am] ~ Lis...: def even_odd(num):
+        if(num%2==0):
+                return True
+        else:
+                return False
+
+
+num=int(input("Enter a number:"))
+even_odd(num)
+if(even_odd==True):
+        print("even")
+[11/10, 8:07 am] ~ Lis...: st=input("Enter a string:")
+sub=input("Enter a substring:")
+st_list=list(st)
+arr=[]
+print(st_list)
+for i in range(len(st_list)):
+        if(st_list[i]==sub):
+                arr.append(i)
+                print(arr)

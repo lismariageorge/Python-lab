@@ -1,0 +1,46 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+def plot_curves():
+    x = np.linspace(-10, 10, 400)  # Generate 400 points between -10 and 10
+    
+    # Define curves
+    y_sin = np.sin(x)
+    y_cos = np.cos(x)
+    y_poly = x**3 - 4*x**2 + x + 6  # Example polynomial
+    y_exp = np.exp(x)
+
+    # Plotting
+    plt.figure(figsize=(12, 8))
+    
+    # Sine
+    plt.subplot(2, 2, 1)
+    plt.plot(x, y_sin, color='blue')
+    plt.title("Sine Curve")
+    plt.grid(True)
+    
+    # Cosine
+    plt.subplot(2, 2, 2)
+    plt.plot(x, y_cos, color='green')
+    plt.title("Cosine Curve")
+    plt.grid(True)
+    
+    # Polynomial
+    plt.subplot(2, 2, 3)
+    plt.plot(x, y_poly, color='red')
+    plt.title("Polynomial Curve")
+    plt.grid(True)
+    
+    # Exponential
+    plt.subplot(2, 2, 4)
+    plt.plot(x, y_exp, color='purple')
+    plt.title("Exponential Curve")
+    plt.ylim(0, 1000)  # Limit Y-axis to avoid overflow
+    plt.grid(True)
+    
+    plt.tight_layout()
+    plt.savefig('curves.png')
+    plt.show()
+
+# Call the function to display curves
+plot_curves()

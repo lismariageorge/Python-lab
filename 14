@@ -1,0 +1,23 @@
+import matplotlib.pyplot as plt
+ def plot_profits():
+ # Input: 12 months
+ months = list(range(1, 13))  # Month numbers from 1 to 12
+ profits = []
+ print("Enter the profits for each of the 12 months:")
+ for i in range(1, 13):
+  profit = float(input(f"Profit for month {i}: "))
+  profits.append(profit)
+ # Plotting
+ plt.figure(figsize=(10, 5))
+ plt.plot(months, profits, marker='o', linestyle='-',
+ color='blue')
+ # Labels and title
+ plt.xlabel("Month Number")
+ plt.ylabel("Total Profit")
+ plt.title("Monthly Profit of Company ABC")
+ plt.grid(True)
+ # Show plot
+ plt.xticks(months)  # Show ticks for all 12 months
+ plt.show()
+ # Run the function
+ plot_profits()

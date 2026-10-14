@@ -1,0 +1,9 @@
+def copy_lines(file1,file2):
+    try:
+        with open(file1,'r') as f1, open(file2,'w') as f2:
+            for i, line in enumerate(f1):
+                if i % 2 == 0: # 0,2,4 are 1st,3rd,5th lines
+                    f2.write(line)
+        print("Alternate lines are copied!")
+    except FileNotFoundError:
+        print("File does not exist")

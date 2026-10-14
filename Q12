@@ -1,0 +1,14 @@
+def read_unique():
+        try:
+                num=list(map(int,input("Enter a list of integers separeted by space:").split()))
+                unique=[]
+                for i in num:
+                        if i in unique:
+                                raise ValueError("Duplicate value found:",i)
+                        unique.append(i)
+                print("All numbers are unique")
+        except ValueError as er:
+                print("Error",er)
+read_unique()
+
+

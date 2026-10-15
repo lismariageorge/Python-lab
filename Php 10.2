@@ -1,0 +1,31 @@
+Check
+
+<?php
+session_start();
+require 'db.php';
+$res = mysqli_query($conn, "SELECT * FROM users WHERE username='" . $_POST['user'] . "'");
+$row = mysqli_fetch_assoc($res);
+if ($row && password_verify($_POST['pass'], $row['password'])) {
+    $_SESSION['user'] = $row['username'];
+    header('Location: home.php');
+} else {
+    header('Location: login.html');
+}
+?>
+Home
+<?php
+session_start();
+if (!isset($_SESSION['user'])) {
+    header('Location: login.html');
+    exit;
+}
+echo "Welcome, " . $_SESSION['user'] . " <a href='logout.php'>Log out</a>";
+?>
+php
+Logout
+<?php
+session_start();
+session_destroy();
+header('Location: login.html');
+?>
+session_start

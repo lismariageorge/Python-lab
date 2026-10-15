@@ -1,0 +1,39 @@
+<form method="post" action="check.php">
+  <input name="user">
+  <input type="password" name="pass">
+  <button>Log in</button>
+</form>
+
+<?php
+session_start();
+if (!isset($_SESSION['user'])) {
+    header('Location: login.html');
+    exit;
+}
+echo "Welcome, " . $_SESSION['user'] . " <a href='logout.php'>Log out</a>";
+?>
+
+<?php
+session_start();
+session_destroy();
+header('Location: login.html');
+?>
+
+<?php // seed.php
+require 'db.php';
+$h = password_hash('1234', PASSWORD_DEFAULT);
+mysqli_query($conn, "INSERT INTO users VALUES ('admin', '$h')");
+?>
+
+<?php
+session_start();
+require 'db.php';
+$res = mysqli_query($conn, "SELECT * FROM users WHERE username='" . $_POST['user'] . "'");
+$row = mysqli_fetch_assoc($res);
+if ($row && password_verify($_POST['pass'], $row['password'])) {
+    $_SESSION['user'] = $row['username'];
+    header('Location: home.php');
+} else {
+    header('Location: login.html');
+}
+?>
